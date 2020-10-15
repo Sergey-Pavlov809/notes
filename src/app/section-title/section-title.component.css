@@ -1,0 +1,16 @@
+.main-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: chartreuse;
+    width: 320px;
+    height: 45px;
+}
+
+.set{
+    padding: 5px;
+}
+
+.mov{
+    padding: 5px;
+}
