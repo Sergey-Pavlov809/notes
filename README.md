@@ -1,0 +1,2 @@
+# notes
+typescript notes project
