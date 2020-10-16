@@ -1,13 +1,12 @@
-.main-container{
-
+:host{
     width: 320px;
-    /*height: 100vh;*/
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
     border: 1px solid black;
-    margin: 5px;
-
+    height: 100%;
+    margin-left: 8px;
+    margin-right: 8px;
+    height: 80%;
+    /* overflow: hidden; */
+    position: fixed; 
 }

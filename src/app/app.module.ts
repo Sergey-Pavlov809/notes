@@ -6,13 +6,18 @@ import { AppComponent } from './app.component';
 import { SectionComponent } from './section/section.component';
 import { NoteComponent } from './note/note.component';
 import { SectionTitleComponent } from './section-title/section-title.component';
+import { AddnoteComponent } from './addnote/addnote.component';
+import { AddsectionComponent } from './addsection/addsection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SectionComponent,
     NoteComponent,
-    SectionTitleComponent
+    SectionTitleComponent,
+    AddnoteComponent,
+    AddsectionComponent
+
   ],
   imports: [
     BrowserModule,
