@@ -1,16 +1,13 @@
 :host{
-    margin-top: 30px;
-    justify-content: center;
+    margin-top: 10px;
+    width: 310px;
 }
 
 .section__addnode__button{
-    justify-content: center;
-    border: black;
+    border: 1px solid black;
     width: 310px;
-    width: 35px;
-    
-}
-
-i{
-    justify-content: center;
+    height: 35px;
+    text-align: center;
+    padding-top: 10px; 
+    margin-left: 5px; 
 }
