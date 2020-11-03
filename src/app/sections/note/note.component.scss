@@ -1,0 +1,51 @@
+$dark_grey : #5f5f5f;
+$light_grey : #f7f7f7;
+$light_blue : #c3e8ff;
+$light_pink : #ffc3c3;
+
+:host {
+    height: 175px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: $light_grey;
+    font-family: fixedsys;
+    margin-bottom: 10px;
+    border: 1px #b2b2b2 solid;
+}
+
+.header {
+    display: flex;
+    font-size: 18px;
+    height: 50px;
+    font-weight: bold;
+    align-items: flex-end;
+}
+
+.text {
+    font-size: 12px;
+    height: 100px;
+    color: $dark_grey;
+}
+
+.bottom {
+    font-size: 12px;
+    color: $dark_grey;
+    display: flex;
+    justify-content: space-between;
+    &__icon {
+        margin-left: 3px;
+        margin-right: 3px;
+        cursor: pointer;
+        font-size: 18px;
+        &_pink {
+            color: $light_pink;
+        }
+        &_blue {
+            color: $light_blue;
+        }
+    }
+}
+
+.invisible {
+    display: none;
+}

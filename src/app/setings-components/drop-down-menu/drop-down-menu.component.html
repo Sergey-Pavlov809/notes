@@ -1,0 +1,24 @@
+<span class="btn" (click)="changeInputSectinHeaderVisibillity()">Переименовать</span>
+<span class="btn btn__delete" (click)="sendDelete()">Удалить</span>
+<p class="color-picker" (change)="changeSectionHeaderColor($event)">
+    <span>Изменить цвет</span>
+    <input type="color" class="color-picker__input">
+</p>
+<span>Сортировать начиная с самых ранних</span>
+<input type="radio" [name]="'radio'+sectionId" (change)="sendFilter()" [id]="'sort-ascending'+sectionId" checked>
+<span>Сортировать начиная с самых поздних</span>
+<input type="radio" [name]="'radio'+sectionId" (change)="sendFilter()">
+<span>Четное число</span>
+<input type="checkbox" name="isEven" (change)="sendFilter()" [id]="'even'+sectionId"  checked>
+<span>Нечетное число</span>
+<input type="checkbox" name="isNotEven" (change)="sendFilter()" [id]="'not-even'+sectionId"  checked>
+<form [formGroup]="inputSectionHeader" (ngSubmit)="sendRename()" 
+[ngClass]="{'invisible': invisibleInputSectionHeader}" class="form">
+    <fa-icon [icon]="faTimesCircle" class="icon__close" (click)="changeInputSectinHeaderVisibillity()">
+    </fa-icon>
+    <label class="form__head">Новый заголовок</label>
+    <input formControlName="sectionHeader" class="form__input">
+    <button [disabled]="inputSectionHeader.invalid" class="form__btn">
+        Поменять имя секции
+    </button>
+</form>

@@ -1,0 +1,43 @@
+:host {
+    width: 70%;
+    height: 90%;
+    position: fixed;
+    background-color: #f3f3f3;
+    border: 1px solid black;
+    left: 15%;
+    top: 5%;
+    z-index: 2;
+}
+
+.icon {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    cursor: pointer;
+}
+
+.form-container {
+    margin-left: 15%;
+    margin-top: 5%;
+    &__form-element {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    &__head {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    &__input {
+        width: 70%;
+    }
+    &__add-btn {
+        border: 1px #b2b2b2 solid;
+        background-color: #f7f7f7;
+        width: 150px;
+        height: 40px;
+        &_abled {
+            cursor: pointer;
+        }
+    }
+}

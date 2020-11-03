@@ -1,5 +1,13 @@
-        <app-section-title></app-section-title>
-        <app-note></app-note>
-        <app-note></app-note>
-        <app-addnote></app-addnote>
-
+<div class="header">
+    <span class="header__ellipsis">...</span>
+    <span>{{header}}</span>
+    <span><fa-icon [icon]="faCogs" class="header__icon"></fa-icon></span>
+</div>
+<div class="notes">
+    <app-note *ngFor="let note of notes" [header]="note.header" 
+    [content]="note.content" [id]="note.id" (onClickTrash)="deleteNote($event)">
+    </app-note>
+    <button class="add-btn">
+        <fa-icon [icon]="faPlus" class="add-btn__icon icon"></fa-icon>
+    </button>
+</div>

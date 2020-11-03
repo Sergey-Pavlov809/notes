@@ -1,0 +1,24 @@
+<div class="header" [ngStyle]="{'background-color': headerColor}">
+    <span class="header__ellipsis">...</span>
+    <span>{{header}}</span>
+    <span>
+        <fa-icon [icon]="faCogs" class="header__icon" (click)="changeDropAndDownMenuVisibillity()">
+        </fa-icon>
+    </span>
+</div>
+<form></form>
+<app-drop-down-menu class="drop-and-down-menu" [ngClass]="{'invisible': invisibleDropAndDownMenu}"
+[sectionHeader]="header" [sectionId]="id" (clickOnClose)="changeDropAndDownMenuVisibillity() " 
+(selectFlag)="filterNotes($event)">
+</app-drop-down-menu>
+<div class="notes">
+    <app-note *ngFor="let note of notes | mapValues" [header]="note.header" [sectionId]="id"
+    [date]="note.date"  [content]="note.content" [id]="note.id" (clickOnTrash)="deleteNote($event)">
+    </app-note>
+    <button class="add-btn" (click)="changeFormVisibillity()">
+        <fa-icon [icon]="faPlus" class="add-btn__icon icon"></fa-icon>
+    </button>
+</div>
+<app-modal-input [ngClass]="{'invisible': invisibleForm}" [sectionId]="id"
+    (clickOnClose)="changeFormVisibillity()" (sendNote)="addNote($event)">
+</app-modal-input>

@@ -1,0 +1,21 @@
+<app-section *ngFor="let section of data.sections | mapValues" [header]="section.header" [notes]="section.notes"
+[id]="section.id" [headerColor]="section.headerColor"  (onDelete)="data.removeSection($event)">
+</app-section>
+<button class="add-btn">
+    <form [formGroup]="sectionHeaderInput" class="form" [ngClass]="{'invisible': invisible}"
+    (ngSubmit)="addSection()">
+        <div class="form__form-element">
+            <label class="form__head">Название секции</label>
+            <input name="header" formControlName="sectionHeader" class="form__input">
+        </div>
+        <button [disabled]="sectionHeaderInput.invalid" class="form__btn">
+            Добавить секцию
+        </button>
+    </form>
+    <fa-icon [icon]="faTimesCircle" class="add-btn__times-circle" [ngClass]="{'invisible': invisible}"
+    (click)="changeVisibillity()">
+    </fa-icon>
+    <fa-icon [icon]="faPlus" class="add-btn__plus" [ngClass]="{'invisible': !invisible}"
+    (click)="changeVisibillity()">
+    </fa-icon>
+</button>

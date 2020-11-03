@@ -1,13 +1,13 @@
-
-
-    <div class="secton__node__title">Title node</div>
-    <div class="section__node__text-note">какая то очень интересная информация которая должна быть в 2 стори поэтому допишу еще немного текста</div>
-    <div class="section__node__foot-container">
-        <div class="disp-row">
-            <div class="section__node__foot-el section__node__date-time">10.10.1010 4:20</div>
-        </div>
-        <div class="section__node__disp-row">
-            <div class="section__node__foot-el"><i class="fas fa-edit"></i></div>
-            <div class="section__node__foot-el"><i class="fas fa-trash-alt"></i></div>
-        </div>
-    </div>
+<div class="header">
+    <span>{{header}}</span>
+</div>
+<div class="text">{{content}}</div>
+<div class="bottom">
+    <span>{{date}}</span>
+    <span>
+        <fa-icon [icon]="faEdit" class="bottom__icon bottom__icon_blue">
+        </fa-icon>
+        <fa-icon [icon]="faTrashAlt" class="bottom__icon bottom__icon_pink" (click)="deleteNote()">
+        </fa-icon>
+    </span>
+</div>
