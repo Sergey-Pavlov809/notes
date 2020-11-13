@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { SectionComponent } from './section/section.component';
 import { NoteComponent } from './note/note.component';
@@ -22,7 +23,8 @@ import { TestPipe } from './test.pipe';
     FontAwesomeModule,
     SetingsComponentsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   exports: [
     SectionComponent,

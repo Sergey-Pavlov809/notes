@@ -1,5 +1,5 @@
 <div class="form-container">
-    <fa-icon [icon]="faTimesCircle" class="icon" (click)="closeForm()"></fa-icon>
+    <fa-icon [icon]="faTimesCircle" class="icon" name="icon" (click)="closeForm()"></fa-icon>
     <form [formGroup]="addNoteForm" (ngSubmit)="addNote()">
         <div class="form-container__form-element">
             <label class="form-container__head">Заголовок</label>
@@ -14,11 +14,11 @@
 
         <div class="form-container__form-element">
             <label class="form-container__head">Дата</label>
-            <input type="date" name="date " formControlName="noteDate" class="form-container__input">
+            <input type="date" name="date" formControlName="noteDate" class="form-container__input">
         </div>
     
         <div>
-            <button [disabled]="addNoteForm.invalid" class="form-container__add-btn"
+            <button [disabled]="addNoteForm.invalid" class="form-container__add-btn" name="form-container__add-btn"
              [ngClass]="{'form-container__add-btn_abled': !addNoteForm.invalid}">
                 {{textOnButton}}
             </button>

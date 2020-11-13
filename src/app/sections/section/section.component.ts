@@ -4,20 +4,19 @@ import { INote } from './note.interface';
 import { ISection } from '../container/section.interface';
 import { SectionsDataService } from '../sections-data.service';
 import { quickSort } from '../../sorts/sorts';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-section',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.scss']
 })
-/**
- * Класс отвечает за хранение заметок и работу с ними внутри секции.
- */
+
 export class SectionComponent implements OnInit, ISection {
   faCogs = faCogs;
   faPlus = faPlus;
 
-  constructor(public data: SectionsDataService) {
+  constructor(public data: SectionsDataService, private activateRoute: ActivatedRoute) {
   }
 
   @Input() header: string;
@@ -25,7 +24,7 @@ export class SectionComponent implements OnInit, ISection {
   @Input() id: number;
   @Input() headerColor: string;
 
-
+  
   showEven = true;
   showNotEven = true;
   sortAscending = true;
@@ -35,6 +34,18 @@ export class SectionComponent implements OnInit, ISection {
 
 
   ngOnInit(): void {
+    this.activateRoute.queryParams.subscribe( params => {
+      if (params.even) {
+        this.showEven = params.even === 'true';
+      }
+      if (params['not-even']) {
+        this.showNotEven = params['not-even'] === 'true';
+      }
+      if (params['sort-ascending']) {
+        this.sortAscending = params['sort-ascending'] === 'true';
+      }
+      this.filterNotes();
+    });
   }
 
 

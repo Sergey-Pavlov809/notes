@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { SectionsDataService } from '../../sections/sections-data.service';
 
@@ -28,13 +29,26 @@ export class DropDownMenuComponent implements OnInit {
   showNotEven = true;
   sortAscending = true;
 
-  constructor(fb: FormBuilder, public sectServ: SectionsDataService) {
+  constructor(fb: FormBuilder, public sectServ: SectionsDataService, private activatedRoute: ActivatedRoute) {
     this.inputSectionHeader = fb.group({
       sectionHeader: new FormControl(this.sectionHeader, Validators.required)
     });
    }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe( params => {
+      if (params.even) {
+        (document.getElementById('even' + this.sectionId) as HTMLInputElement).checked = params.even === 'true';
+      }
+      if (params['not-even']) {
+        this.showNotEven = (document.getElementById('not-even' + this.sectionId) as HTMLInputElement).checked = params['not-even'] === 'true';
+      }
+      if (params['sort-ascending']) {
+        (document.
+        getElementById( (params['sort-ascending'] === 'true' ? '' : 'reverse-') +
+        'sort-ascending' + this.sectionId) as HTMLInputElement).checked = true;
+      }
+    });
   }
 
   /**

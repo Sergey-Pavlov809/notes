@@ -4,15 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'test'
 })
 
-/**
- * Класс нужен для форматирования даты в строку вида дд имя_месяца_в_винительном_падеже гггг, чч:мм.
- */
 export class TestPipe implements PipeTransform {
-  months: string[] = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля',
-    'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+  months: string[] = ['я', 'ф', 'м', 'а', 'м', 'и', 'и',
+    'а', 'с', 'о', 'н', 'д'];
 
   transform(date: Date): string {
-    return `${('0' + date.getDate()).slice(-2)} ${this.months[date.getMonth()]}
-      ${date.getFullYear()}, ${('0' + date.getHours()).slice(-2)}:${('0' + date.getMonth()).slice(-2)}`;
+    return `${('0' + date.getDate()).slice(-2)} ${this.months[date.getMonth()]}` +
+      ` ${date.getFullYear()}, ${('0' + date.getHours()).slice(-2)}:${('0' + date.getMonth()).slice(-2)}`;
   }
 }

@@ -4,14 +4,14 @@
     <span>Изменить цвет</span>
     <input type="color" class="color-picker__input">
 </p>
-<span>Сортировать начиная с самых ранних</span>
-<input type="radio" [name]="'radio'+sectionId" (change)="sendFilter()" [id]="'sort-ascending'+sectionId" checked>
-<span>Сортировать начиная с самых поздних</span>
-<input type="radio" [name]="'radio'+sectionId" (change)="sendFilter()">
-<span>Четное число</span>
-<input type="checkbox" name="isEven" (change)="sendFilter()" [id]="'even'+sectionId"  checked>
-<span>Нечетное число</span>
-<input type="checkbox" name="isNotEven" (change)="sendFilter()" [id]="'not-even'+sectionId"  checked>
+<input type="radio" [name]="'radio'+sectionId" (change)="sendFilter()" [id]="'sort-ascending'+sectionId" class="input-btn__radio" checked>
+<label [for]="'sort-ascending'+sectionId">Сортировать начиная с самых ранних</label>
+<input type="radio" [name]="'radio'+sectionId" (change)="sendFilter()" [id]="'reverse-sort-ascending'+sectionId" class="input-btn__radio">
+<label [for]="'reverse-sort-ascending'+sectionId">Сортировать начиная с самых поздних</label>
+<input type="checkbox" name="isEven" (change)="sendFilter()" [id]="'even'+sectionId" class="input-btn__checkbox" checked>
+<label [for]="'even'+sectionId">Четное число</label>
+<input type="checkbox" name="isNotEven" (change)="sendFilter()" [id]="'not-even'+sectionId" class="input-btn__checkbox" checked>
+<label [for]="'not-even'+sectionId">Нечетное число</label>
 <form [formGroup]="inputSectionHeader" (ngSubmit)="sendRename()" 
 [ngClass]="{'invisible': invisibleInputSectionHeader}" class="form">
     <fa-icon [icon]="faTimesCircle" class="icon__close" (click)="changeInputSectinHeaderVisibillity()">

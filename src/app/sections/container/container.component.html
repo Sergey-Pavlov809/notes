@@ -1,21 +1,25 @@
-<app-section *ngFor="let section of data.sections | mapValues" [header]="section.header" [notes]="section.notes"
-[id]="section.id" [headerColor]="section.headerColor"  (onDelete)="data.removeSection($event)">
-</app-section>
-<button class="add-btn">
-    <form [formGroup]="sectionHeaderInput" class="form" [ngClass]="{'invisible': invisible}"
-    (ngSubmit)="addSection()">
-        <div class="form__form-element">
-            <label class="form__head">Название секции</label>
-            <input name="header" formControlName="sectionHeader" class="form__input">
-        </div>
-        <button [disabled]="sectionHeaderInput.invalid" class="form__btn">
-            Добавить секцию
-        </button>
-    </form>
-    <fa-icon [icon]="faTimesCircle" class="add-btn__times-circle" [ngClass]="{'invisible': invisible}"
-    (click)="changeVisibillity()">
-    </fa-icon>
-    <fa-icon [icon]="faPlus" class="add-btn__plus" [ngClass]="{'invisible': !invisible}"
-    (click)="changeVisibillity()">
-    </fa-icon>
-</button>
+
+<div class="sections" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="dropSections($event)">
+    <app-section *ngFor="let section of data.sections | mapValues" [header]="section.header" [notes]="section.notes" [id]="section.id" 
+    [headerColor]="section.headerColor"  (onDelete)="data.removeSection($event)" cdkDragLockAxis="x"  cdkDrag cdkDragBoundary=".sections">
+        <span class="sections__ellipsis" cdkDragHandle>...</span>
+    </app-section>
+    <button class="sections__add-btn" name="sections__add-btn">
+        <form [formGroup]="sectionHeaderInput" class="sections__form" [ngClass]="{'invisible': invisible}"
+        (ngSubmit)="addSection()">
+            <div class="sections__form_form-element">
+                <label class="sections__form_head" name="sections__form_head">Название секции</label>
+                <input name="header" formControlName="sectionHeader" class="sections__form_input" name="sections__form_input">
+            </div>
+            <button [disabled]="sectionHeaderInput.invalid" class="sections__form_btn" name="sections__form_btn">
+                Добавить секцию
+            </button>
+        </form>
+        <fa-icon [icon]="faTimesCircle" class="sections__add-btn_times-circle" [ngClass]="{'invisible': invisible}" name="sections__add-btn_times-circle"
+        (click)="changeVisibillity()">
+        </fa-icon>
+        <fa-icon [icon]="faPlus" name="sections__add-btn_plus" class="sections__add-btn_plus" [ngClass]="{'invisible': !invisible}"
+        (click)="changeVisibillity()">
+        </fa-icon>
+    </button>
+</div>
