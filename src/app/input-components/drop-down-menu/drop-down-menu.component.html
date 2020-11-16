@@ -1,24 +1,24 @@
-<span class="btn" (click)="changeInputSectinHeaderVisibillity()">Переименовать</span>
-<span class="btn btn__delete" (click)="sendDelete()">Удалить</span>
+<span class="btn" (click)="changeInputSectinHeaderVisibillity()">{{'Rename' | translate}}</span>
+<span class="btn btn__delete" (click)="sendDelete()">{{'Delete' | translate}}</span>
 <p class="color-picker" (change)="changeSectionHeaderColor($event)">
-    <span>Изменить цвет</span>
+    <span>{{'ChangeColor' | translate}}</span>
     <input type="color" class="color-picker__input">
 </p>
 <input type="radio" [name]="'radio'+sectionId" (change)="sendFilter()" [id]="'sort-ascending'+sectionId" class="input-btn__radio" checked>
-<label [for]="'sort-ascending'+sectionId">Сортировать начиная с самых ранних</label>
+<label [for]="'sort-ascending'+sectionId" name="label-sort-ascending">{{"SortAscending" | translate}}</label>
 <input type="radio" [name]="'radio'+sectionId" (change)="sendFilter()" [id]="'reverse-sort-ascending'+sectionId" class="input-btn__radio">
-<label [for]="'reverse-sort-ascending'+sectionId">Сортировать начиная с самых поздних</label>
+<label [for]="'reverse-sort-ascending'+sectionId" name="label-reverse-sort-ascending">{{'ReverseSortAscending' | translate}}</label>
 <input type="checkbox" name="isEven" (change)="sendFilter()" [id]="'even'+sectionId" class="input-btn__checkbox" checked>
-<label [for]="'even'+sectionId">Четное число</label>
+<label [for]="'even'+sectionId" name="label-even">{{'ShowEvenDate' | translate}}</label>
 <input type="checkbox" name="isNotEven" (change)="sendFilter()" [id]="'not-even'+sectionId" class="input-btn__checkbox" checked>
-<label [for]="'not-even'+sectionId">Нечетное число</label>
+<label [for]="'not-even'+sectionId" name="label-not-even">{{'ShowNotEvenDate' | translate}}</label>
 <form [formGroup]="inputSectionHeader" (ngSubmit)="sendRename()" 
 [ngClass]="{'invisible': invisibleInputSectionHeader}" class="form">
-    <fa-icon [icon]="faTimesCircle" class="icon__close" (click)="changeInputSectinHeaderVisibillity()">
+    <fa-icon [icon]="icons.faTimesCircle" class="icon__close" (click)="changeInputSectinHeaderVisibillity()">
     </fa-icon>
-    <label class="form__head">Новый заголовок</label>
+    <label class="form__head">{{'NewHead' | translate}}</label>
     <input formControlName="sectionHeader" class="form__input">
     <button [disabled]="inputSectionHeader.invalid" class="form__btn">
-        Поменять имя секции
+        {{'ChangeSectionName' | translate}}
     </button>
 </form>

@@ -1,15 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
+import { ModalInputComponent } from './modal-input/modal-input.component';
+import { DropDownMenuComponent } from './drop-down-menu/drop-down-menu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SetingsComponentsModule } from './input-components/setings-components.module';
-import { SectionsModule } from './sections/sections.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     return new TranslateHttpLoader(http);
@@ -17,14 +14,14 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
 @NgModule({
     declarations: [
-        AppComponent,
+        ModalInputComponent,
+        DropDownMenuComponent
     ],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         FontAwesomeModule,
-        SetingsComponentsModule,
-        SectionsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -35,7 +32,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         }),
         HttpClientModule
     ],
-    providers: [],
-    bootstrap: [AppComponent]
+    exports: [
+        ModalInputComponent,
+        DropDownMenuComponent
+    ]
 })
-export class AppModule { }
+export class SetingsComponentsModule { }

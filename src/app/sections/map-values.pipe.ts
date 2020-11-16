@@ -1,16 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'mapValues',
-  pure: false
+    name: 'mapValues',
+    pure: false
 })
 /**
- * Класс преобразует Map в массив значений.
+ * from map to arr.
  */
 export class MapValuesPipe implements PipeTransform {
 
-  transform(map: Map<any, any>, ...args: unknown[]): unknown {
-    return Array.from( map.values() );
-  }
+    transform(map: Map<any, any>, ...args: unknown[]): any[] {
+        return Array.from(map.values());
+    }
 
 }

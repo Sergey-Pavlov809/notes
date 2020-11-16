@@ -1,3 +1,17 @@
 {
- "HELLO": "hello"
+    "Notes": "Notes",
+    "ShowEvenDate": "Show even date",
+    "ShowNotEvenDate": "Show not even date",
+    "SortAscending": "Sort by date ascending",
+    "ReverseSortAscending": "Reverse sort by date ascending",
+    "Header": "Header",
+    "Text": "Text",
+    "Date": "Date",
+    "ChangeNote": "Change note",
+    "AddNote": "Add note",
+    "Rename": "Rename",
+    "ChangeColor": "Change color",
+    "Delete": "Delete",
+    "NewHead": "New header",
+    "ChangeSectionName": "Change section name"
 }

@@ -13,12 +13,19 @@ export class SectionComponent implements OnInit, ISection {
   faPlus = faPlus;
 
   constructor() { }
+
+    /*
+    * Inputs
+    */ 
   @Input() header: string;
   @Input() notes: INote[];
 
   ngOnInit(): void {
   }
 
+  /**
+  * Удаление записи.
+  */
   deleteNote(id: number): void {
     let deletingNoteIndex = this.notes.findIndex( note => note.id === id);
     if (deletingNoteIndex === -1) {

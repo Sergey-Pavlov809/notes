@@ -4,52 +4,65 @@ import { SectionsDataService } from '../sections-data.service';
 import { INote } from './../section/note.interface';
 
 @Component({
-  selector: 'app-note',
-  templateUrl: './note.component.html',
-  styleUrls: ['./note.component.scss']
+    selector: 'app-note',
+    templateUrl: './note.component.html',
+    styleUrls: ['./note.component.scss']
 })
 
-/**
- * Класс отвечает за хранение данных в заметке.
+/*
+ *
  */
-export class NoteComponent implements OnInit, INote {
-  faEdit = faEdit;
-  faTrashAlt = faTrashAlt;
+export class NoteComponent implements INote {
 
-  constructor(public sectServ: SectionsDataService) {
-  }
+    /*
+    *   Inputs
+    */
+    @Input() header: string;
+    @Input() content: string;
+    @Input() date: Date;
+    @Input() id: number;
+    @Input() sectionId: number;
 
-  @Input() header: string;
-  @Input() content: string;
-  @Input() date: Date;
-  @Input() id: number;
-  @Input() sectionId: number;
+    /*
+    * Outputs
+    */
+    @Output() clickOnTrash = new EventEmitter<number>();
 
-  @Output() clickOnTrash = new EventEmitter<number>();
-
-  invisibleForm = true;
-
-  ngOnInit(): void {
-  }
-
-  /**
-   * В процессе удаления происходит отправка информации о своем удалении родительскому компоненту.
-   */
-  delete(): void {
-    this.sectServ.deleteNote(this.sectionId, this.id);
-    this.clickOnTrash.emit(this.id);
-  }
-
-  changeFormVisibillity(): void {
-    this.invisibleForm = !this.invisibleForm;
-  }
+    public readonly icons = {
+        faEdit,
+        faTrashAlt
+    };
 
 
-  changeNote(e: INote): void {
-    this.changeFormVisibillity();
-    this.sectServ.changeNoteContent(this.sectionId, this.id, e);
-    this.header = e.header;
-    this.content = e.content;
-    this.date = e.date;
-  }
+    constructor(public sectServ: SectionsDataService) {
+    }
+
+
+    public invisibleForm = true;
+
+    /*
+    * 
+    */    
+    public delete(): void {
+        this.sectServ.deleteNote(this.sectionId, this.id);
+        this.clickOnTrash.emit(this.id);
+    }
+
+    /*
+    * 
+    */
+    public changeFormVisibillity(): void {
+        this.invisibleForm = !this.invisibleForm;
+    }
+
+    /*
+    * 
+    */
+    public changeNote(e: INote): void {
+        this.changeFormVisibillity();
+        this.sectServ.changeNoteContent(this.sectionId, this.id, e);
+        this.header = e.header;
+        this.content = e.content;
+        this.date = e.date;
+    }
 }

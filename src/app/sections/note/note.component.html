@@ -1,6 +1,4 @@
-
-
-<app-modal-input [textOnButton]="'Изменить заметку'" [ngClass]="{'invisible': invisibleForm}" 
+<app-modal-input [textOnButton]="'ChangeNote'" [ngClass]="{'invisible': invisibleForm}"
 (clickOnClose)="changeFormVisibillity()" (sendNote)="changeNote($event)"> 
 </app-modal-input>
 <div class="header">
@@ -10,9 +8,9 @@
 <div class="bottom">
     <span>{{date | test}}</span>
     <span>
-        <fa-icon [icon]="faEdit" class="bottom__icon bottom__icon_blue" (click)="changeFormVisibillity()">
+        <fa-icon [icon]="icons.faEdit" class="bottom__icon bottom__icon_blue" (click)="changeFormVisibillity()">
         </fa-icon>
-        <fa-icon [icon]="faTrashAlt" class="bottom__icon bottom__icon_pink" (click)="delete()">
+        <fa-icon [icon]="icons.faTrashAlt" class="bottom__icon bottom__icon_pink" (click)="delete()">
         </fa-icon>
     </span>
 </div>

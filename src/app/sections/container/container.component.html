@@ -1,7 +1,22 @@
 
+    <span class="language" (click)="changeLangListvisibillity()">
+        <span>lang</span>
+        <div class="language__list" [ngClass]="{'invisible': languagesListInvisible}">
+            <div class="language__list_btn">
+                <input type="radio" name="lang" value="ru" (change)="changeLanguage($event)" checked>
+                <label for="lang">ru</label>
+            </div>
+            <div class="language__list_btn" (change)="changeLanguage($event)">
+                <input type="radio" name="lang" value="en">
+                <label for="lang">en</label>
+            </div>
+        </div>
+    </span>   
+
 <div class="sections" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="dropSections($event)">
     <app-section *ngFor="let section of data.sections | mapValues" [header]="section.header" [notes]="section.notes" [id]="section.id" 
-    [headerColor]="section.headerColor"  (onDelete)="data.removeSection($event)" cdkDragLockAxis="x"  cdkDrag cdkDragBoundary=".sections">
+    [headerColor]="section.headerColor"  (onDelete)="data.removeSection($event)" cdkDragLockAxis="x"  cdkDrag cdkDragBoundary=".sections"
+    >
         <span class="sections__ellipsis" cdkDragHandle>...</span>
     </app-section>
     <button class="sections__add-btn" name="sections__add-btn">
@@ -15,10 +30,10 @@
                 Добавить секцию
             </button>
         </form>
-        <fa-icon [icon]="faTimesCircle" class="sections__add-btn_times-circle" [ngClass]="{'invisible': invisible}" name="sections__add-btn_times-circle"
+        <fa-icon [icon]="icons.faTimesCircle" class="sections__add-btn_times-circle" [ngClass]="{'invisible': invisible}" name="sections__add-btn_times-circle"
         (click)="changeVisibillity()">
         </fa-icon>
-        <fa-icon [icon]="faPlus" name="sections__add-btn_plus" class="sections__add-btn_plus" [ngClass]="{'invisible': !invisible}"
+        <fa-icon [icon]="icons.faPlus" name="sections__add-btn_plus" class="sections__add-btn_plus" [ngClass]="{'invisible': !invisible}"
         (click)="changeVisibillity()">
         </fa-icon>
     </button>
